@@ -216,6 +216,27 @@
             justify-content: center;
         }
 
+.header-logo {
+    height: 1.5em;           /* Scales with text size */
+    width: auto;             /* Maintains aspect ratio */
+    max-width: 60px;         /* Hard limit */
+    margin-right: 0.5rem;    /* Space between logo and text */
+    vertical-align: middle;   /* Aligns with text baseline */
+    object-fit: contain;     /* Keeps proportions */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .header-logo {
+        height: 1.2em;       /* Slightly smaller on mobile */
+        max-width: 48px;     /* Smaller max width */
+        margin-right: 0.3rem; /* Less spacing */
+    }
+}
+
+
+
+        
         .kit-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
@@ -483,23 +504,7 @@
         <div class="page-header">
             <h1><img src="Rosary.jpg" alt="Mission Rosary" class="header-logo"> Mission Rosary</h1>
             
-css.header-logo {
-    height: 1.5em;           /* Scales with text size */
-    width: auto;             /* Maintains aspect ratio */
-    max-width: 60px;         /* Hard limit */
-    margin-right: 0.5rem;    /* Space between logo and text */
-    vertical-align: middle;   /* Aligns with text baseline */
-    object-fit: contain;     /* Keeps proportions */
-}
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .header-logo {
-        height: 1.2em;       /* Slightly smaller on mobile */
-        max-width: 48px;     /* Smaller max width */
-        margin-right: 0.3rem; /* Less spacing */
-    }
-}
 
            
             
