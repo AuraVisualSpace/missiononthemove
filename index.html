@@ -29,7 +29,7 @@
             display: block;
         }
 
-        /* Navigation */
+           /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -54,24 +54,28 @@
             align-items: center;
         }
 
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "✝️";
+            font-size: 1.8rem;
+        }
+
         .jy-logo {
             max-height: 40px;
             width: auto;
             margin-right: 0.5rem;
-            display: inline-block; /* Changed from none to inline-block */
-            vertical-align: middle;
-            object-fit: contain;
-                }
+            display: none; /* Will be shown when src is added */
+        }
 
-@media (max-width: 768px) {
-    .jy-logo {
-        max-height: 32px;
-        margin-right: 0.3rem;
-    }
-}
-      
-
-        
         .nav-links {
             display: flex;
             list-style: none;
