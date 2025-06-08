@@ -21,6 +21,7 @@
         .page {
             display: none;
             min-height: 100vh;
+            padding-bottom: 2rem;
         }
 
         .page.active {
@@ -67,6 +68,12 @@
             font-size: 1.8rem;
         }
 
+        .jy-logo {
+            max-height: 40px;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -89,7 +96,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a237e 0%, #ffeb3b 50%, #ffffff 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #4caf50 30%, #ffeb3b 60%, #ffffff 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -123,6 +130,41 @@
             padding: 2rem;
         }
 
+        .hero-logo-upload {
+            margin-bottom: 2rem;
+        }
+
+        .logo-upload-container {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .jy-hero-logo {
+            max-height: 120px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .upload-btn {
+            background: rgba(255,255,255,0.9);
+            border: 2px dashed #1a237e;
+            border-radius: 10px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .upload-btn:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-2px);
+        }
+
+        .upload-btn input {
+            display: none;
+        }
+
         .hero h1 {
             font-size: 4rem;
             font-weight: 800;
@@ -141,7 +183,7 @@
 
         .cta-button {
             display: inline-block;
-            background: #3949ab;
+            background: #4caf50;
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
@@ -150,13 +192,13 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out 0.6s both;
-            box-shadow: 0 10px 30px rgba(57, 73, 171, 0.3);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
         }
 
         .cta-button:hover {
-            background: #303f9f;
+            background: #45a049;
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(57, 73, 171, 0.4);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
         }
 
         @keyframes fadeInUp {
@@ -175,7 +217,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 4rem 2rem;
+            padding: 4rem 2rem 6rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -189,12 +231,17 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: 3px solid transparent;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .kit-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border-color: #667eea;
+            border-color: #4caf50;
         }
 
         .kit-item-icon {
@@ -202,6 +249,43 @@
             margin-bottom: 1rem;
             display: block;
             line-height: 1;
+            position: relative;
+        }
+
+        .kit-item-image {
+            max-width: 80px;
+            max-height: 80px;
+            width: auto;
+            height: auto;
+            margin: 0 auto 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .upload-placeholder {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .upload-placeholder:hover {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .upload-placeholder input {
+            display: none;
         }
 
         .kit-item h3 {
@@ -213,11 +297,12 @@
         .kit-item p {
             color: #666;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         /* Individual Pages */
         .page-header {
-            background: linear-gradient(135deg, #1a237e 0%, #ffeb3b 50%, #ffffff 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #4caf50 40%, #ffeb3b 70%, #ffffff 100%);
             color: #1a237e;
             padding: 8rem 2rem 4rem;
             text-align: center;
@@ -234,17 +319,17 @@
         .page-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 4rem 2rem 6rem;
         }
 
         .feature-box {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #4caf50 0%, #1a237e 100%);
             color: white;
             padding: 3rem;
             border-radius: 20px;
             margin: 2rem 0;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3);
         }
 
         .feature-box h3 {
@@ -322,12 +407,16 @@
 
             .kit-grid {
                 grid-template-columns: 1fr;
-                padding: 2rem 1rem;
+                padding: 2rem 1rem 4rem;
             }
 
             .page-header h1 {
                 font-size: 2rem;
                 color: #1a237e;
+            }
+
+            .page-content {
+                padding: 2rem 1rem 4rem;
             }
         }
 
@@ -336,21 +425,44 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: #3949ab;
+            background: #4caf50;
             color: white;
             border: none;
             padding: 1rem;
             border-radius: 50%;
             font-size: 1.2rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(57, 73, 171, 0.3);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
             transition: all 0.3s ease;
             z-index: 1000;
         }
 
         .back-btn:hover {
-            background: #303f9f;
+            background: #45a049;
             transform: scale(1.1);
+        }
+
+        /* Rosary Colors Section */
+        .rosary-colors {
+            background: linear-gradient(90deg, 
+                #4caf50 0% 20%, 
+                #f44336 20% 40%, 
+                #ffffff 40% 60%, 
+                #2196f3 60% 80%, 
+                #ffeb3b 80% 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            color: #1a237e;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .rosary-colors h4 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
     </style>
 </head>
@@ -358,7 +470,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo" onclick="showPage('home')">Mission on the Move</a>
+            <a href="#" class="logo" onclick="showPage('home')">
+                <img src="" alt="JY Logo" class="jy-logo" id="navLogo" style="display: none;">
+                Mission on the Move
+            </a>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#" onclick="showPage('home')">Home</a></li>
@@ -375,6 +490,16 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
+                <div class="hero-logo-upload">
+                    <div class="logo-upload-container">
+                        <img src="" alt="JY Logo" class="jy-hero-logo" id="heroLogo" style="display: none;">
+                        <div class="upload-btn" onclick="document.getElementById('logoUpload').click()">
+                            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">
+                            <p>📁 Upload JY Logo</p>
+                            <small>Click to upload organization logo</small>
+                        </div>
+                    </div>
+                </div>
                 <h1>Mission on the Move</h1>
                 <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
                 <a href="#" class="cta-button" onclick="document.querySelector('.kit-grid').scrollIntoView({behavior: 'smooth'})">Explore Mission Kit</a>
@@ -383,27 +508,47 @@
 
         <section class="kit-grid">
             <div class="kit-item" onclick="showPage('rosary')">
-                <span class="kit-item-icon">📿✝️</span>
+                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('rosaryUpload').click()">
+                    <input type="file" id="rosaryUpload" accept="image/*" onchange="uploadIcon(this, 'rosary')">
+                    <img src="" alt="Mission Rosary" class="kit-item-image" id="rosaryImage" style="display: none;">
+                    <span id="rosaryPlaceholder">📿✝️<br><small>Upload Image</small></span>
+                </div>
                 <h3>Mission Rosary</h3>
-                <p>A special rosary to pray intentionally for the mission and mission countries around the world.</p>
+                <p>A sacred prayer to meditate on the mysteries of Christ's life while praying for missions worldwide.</p>
             </div>
             <div class="kit-item" onclick="showPage('wristband')">
-                <span class="kit-item-icon">🎗️</span>
+                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('wristbandUpload').click()">
+                    <input type="file" id="wristbandUpload" accept="image/*" onchange="uploadIcon(this, 'wristband')">
+                    <img src="" alt="Mission Wristband" class="kit-item-image" id="wristbandImage" style="display: none;">
+                    <span id="wristbandPlaceholder">🎗️<br><small>Upload Image</small></span>
+                </div>
                 <h3>Mission Wristband</h3>
                 <p>A constant reminder that we are always part of the mission, featuring "Mission on the Move".</p>
             </div>
             <div class="kit-item" onclick="showPage('prayer-card')">
-                <span class="kit-item-icon">🙏</span>
+                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('prayercardUpload').click()">
+                    <input type="file" id="prayercardUpload" accept="image/*" onchange="uploadIcon(this, 'prayercard')">
+                    <img src="" alt="Prayer Card" class="kit-item-image" id="prayercardImage" style="display: none;">
+                    <span id="prayercardPlaceholder">🙏<br><small>Upload Image</small></span>
+                </div>
                 <h3>Prayer Card & QR Code</h3>
                 <p>Mission-focused prayers with QR code for updates about mission countries.</p>
             </div>
             <div class="kit-item" onclick="showPage('map')">
-                <span class="kit-item-icon">🗺️</span>
+                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('mapUpload').click()">
+                    <input type="file" id="mapUpload" accept="image/*" onchange="uploadIcon(this, 'map')">
+                    <img src="" alt="Mission Map" class="kit-item-image" id="mapImage" style="display: none;">
+                    <span id="mapPlaceholder">🗺️<br><small>Upload Image</small></span>
+                </div>
                 <h3>Mission Country Map</h3>
                 <p>A visual reminder to pray daily for highlighted mission countries around the world.</p>
             </div>
             <div class="kit-item" onclick="showPage('game')">
-                <span class="kit-item-icon">🌳</span>
+                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('gameUpload').click()">
+                    <input type="file" id="gameUpload" accept="image/*" onchange="uploadIcon(this, 'game')">
+                    <img src="" alt="Fall & Rise Game" class="kit-item-image" id="gameImage" style="display: none;">
+                    <span id="gamePlaceholder">🌳<br><small>Upload Image</small></span>
+                </div>
                 <h3>Fall & Rise Game</h3>
                 <p>A fun game to play during free time that keeps the mission spirit alive in your heart.</p>
             </div>
@@ -414,33 +559,48 @@
     <div id="rosary" class="page">
         <div class="page-header">
             <h1>📿✝️ Mission Rosary</h1>
-            <p>Pray with purpose for missions worldwide</p>
+            <p>Meditate on Christ's mysteries while praying for global missions</p>
         </div>
         <div class="page-content">
             <div class="feature-box">
-                <h3>Sacred Connection to Global Mission</h3>
-                <p>This specially blessed rosary connects your prayers to missionaries and communities around the world. Each bead carries the intention of global evangelization and spiritual support.</p>
+                <h3>The Epitome of the Whole Gospel</h3>
+                <p>The Holy Rosary is a Scripture-based prayer that helps us meditate on the principal events in the history of our salvation. As St. Paul VI said, it's "the epitome of the whole Gospel" that leads us to a deeper understanding of Christ's life, death, and resurrection.</p>
+            </div>
+
+            <div class="rosary-colors">
+                <h4>World Mission Rosary - Five Colors for Five Continents</h4>
+                <p>Green for Africa • Red for the Americas • White for Europe • Blue for Oceania • Yellow for Asia</p>
             </div>
             
             <div class="feature-list">
-                <h4>How to Use Your Mission Rosary:</h4>
+                <h4>The Sacred Purpose of the Rosary:</h4>
                 <ul>
-                    <li>Begin each rosary with an intention for a specific mission country</li>
-                    <li>Dedicate each decade to different aspects of mission work</li>
-                    <li>Pray for missionaries, local communities, and those seeking faith</li>
-                    <li>Include prayers for vocations to missionary service</li>
-                    <li>End with gratitude for the opportunity to serve through prayer</li>
+                    <li>Meditate on the twenty mysteries of Christ's life (Joyful, Luminous, Sorrowful, Glorious)</li>
+                    <li>Deepen your understanding of salvation history through Mary's eyes</li>
+                    <li>Unite your prayers with the global Church for mission territories</li>
+                    <li>Practice contemplative prayer that leads to holiness</li>
+                    <li>Ask Mary's intercession for missionaries and those seeking Christ</li>
                 </ul>
             </div>
 
             <div class="feature-list">
-                <h4>Mission Mysteries to Contemplate:</h4>
+                <h4>How to Pray the Mission Rosary:</h4>
                 <ul>
-                    <li>The Great Commission - Jesus sending forth the disciples</li>
-                    <li>Pentecost - The gift of tongues for global evangelization</li>
-                    <li>The conversion of St. Paul - From persecutor to missionary</li>
-                    <li>The missionary journeys spreading the Gospel</li>
-                    <li>The harvest is plenty - Praying for more laborers</li>
+                    <li>Begin with the Sign of the Cross and Apostles' Creed</li>
+                    <li>Dedicate each decade to a different continent and its missions</li>
+                    <li>Meditate on the mysteries while praying the Hail Marys</li>
+                    <li>Offer special intentions for missionaries in that region</li>
+                    <li>End with prayers for peace in the world and growth of the Church</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>The Mysteries of the Rosary for Missions:</h4>
+                <ul>
+                    <li><strong>Joyful Mysteries:</strong> The Incarnation and early life of Christ</li>
+                    <li><strong>Luminous Mysteries:</strong> Christ's public ministry and Gospel proclamation</li>
+                    <li><strong>Sorrowful Mysteries:</strong> Christ's passion and sacrifice for all humanity</li>
+                    <li><strong>Glorious Mysteries:</strong> The Resurrection and birth of the Church</li>
                 </ul>
             </div>
         </div>
@@ -658,6 +818,41 @@
             navLinks.classList.toggle('active');
         }
 
+        function uploadLogo(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const heroLogo = document.getElementById('heroLogo');
+                    const navLogo = document.getElementById('navLogo');
+                    
+                    heroLogo.src = e.target.result;
+                    navLogo.src = e.target.result;
+                    
+                    heroLogo.style.display = 'block';
+                    navLogo.style.display = 'block';
+                    
+                    // Hide upload button
+                    document.querySelector('.upload-btn').style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function uploadIcon(input, type) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const image = document.getElementById(type + 'Image');
+                    const placeholder = document.getElementById(type + 'Placeholder');
+                    
+                    image.src = e.target.result;
+                    image.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
         // Add smooth scrolling behavior
         document.addEventListener('DOMContentLoaded', function() {
             // Add hover effects and animations
@@ -676,7 +871,7 @@
             window.addEventListener('scroll', function() {
                 const scrolled = window.pageYOffset;
                 const parallax = document.querySelector('.hero');
-                if (parallax) {
+                if (parallax && document.getElementById('home').classList.contains('active')) {
                     const speed = scrolled * 0.5;
                     parallax.style.transform = `translateY(${speed}px)`;
                 }
