@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission on the Move | JY Initiative</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 126, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            background: rgba(26, 35, 126, 0.98);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "🌍";
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a237e 0%, #ffeb3b 50%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #1a237e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="10" cy="50" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="90" cy="30" r="0.5" fill="rgba(255,255,255,0.15)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+            animation: fadeInUp 1s ease-out;
+            color: #1a237e;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3949ab;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            box-shadow: 0 10px 30px rgba(57, 73, 171, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #303f9f;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(57, 73, 171, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mission Kit Grid */
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .kit-item {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .kit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .kit-item-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .kit-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .kit-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Individual Pages */
+        .page-header {
+            background: linear-gradient(135deg, #1a237e 0%, #ffeb3b 50%, #ffffff 100%);
+            color: #1a237e;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+            color: #1a237e;
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+        }
+
+        .feature-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-list h4 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 35, 126, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .kit-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+                color: #1a237e;
+            }
+        }
+
+        /* Back to Home Button */
+        .back-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3949ab;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(57, 73, 171, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            background: #303f9f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">Mission on the Move</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('rosary')">Mission Rosary</a></li>
+                <li><a href="#" onclick="showPage('wristband')">Wristband</a></li>
+                <li><a href="#" onclick="showPage('prayer-card')">Prayer Card</a></li>
+                <li><a href="#" onclick="showPage('map')">Country Map</a></li>
+                <li><a href="#" onclick="showPage('game')">Game Items</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Mission on the Move</h1>
+                <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
+                <a href="#" class="cta-button" onclick="document.querySelector('.kit-grid').scrollIntoView({behavior: 'smooth'})">Explore Mission Kit</a>
+            </div>
+        </section>
+
+        <section class="kit-grid">
+            <div class="kit-item" onclick="showPage('rosary')">
+                <span class="kit-item-icon">📿✝️</span>
+                <h3>Mission Rosary</h3>
+                <p>A special rosary to pray intentionally for the mission and mission countries around the world.</p>
+            </div>
+            <div class="kit-item" onclick="showPage('wristband')">
+                <span class="kit-item-icon">🎗️</span>
+                <h3>Mission Wristband</h3>
+                <p>A constant reminder that we are always part of the mission, featuring "Mission on the Move".</p>
+            </div>
+            <div class="kit-item" onclick="showPage('prayer-card')">
+                <span class="kit-item-icon">🙏</span>
+                <h3>Prayer Card & QR Code</h3>
+                <p>Mission-focused prayers with QR code for updates about mission countries.</p>
+            </div>
+            <div class="kit-item" onclick="showPage('map')">
+                <span class="kit-item-icon">🗺️</span>
+                <h3>Mission Country Map</h3>
+                <p>A visual reminder to pray daily for highlighted mission countries around the world.</p>
+            </div>
+            <div class="kit-item" onclick="showPage('game')">
+                <span class="kit-item-icon">🌳</span>
+                <h3>Fall & Rise Game</h3>
+                <p>A fun game to play during free time that keeps the mission spirit alive in your heart.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Mission Rosary Page -->
+    <div id="rosary" class="page">
+        <div class="page-header">
+            <h1>📿✝️ Mission Rosary</h1>
+            <p>Pray with purpose for missions worldwide</p>
+        </div>
+        <div class="page-content">
+            <div class="feature-box">
+                <h3>Sacred Connection to Global Mission</h3>
+                <p>This specially blessed rosary connects your prayers to missionaries and communities around the world. Each bead carries the intention of global evangelization and spiritual support.</p>
+            </div>
+            
+            <div class="feature-list">
+                <h4>How to Use Your Mission Rosary:</h4>
+                <ul>
+                    <li>Begin each rosary with an intention for a specific mission country</li>
+                    <li>Dedicate each decade to different aspects of mission work</li>
+                    <li>Pray for missionaries, local communities, and those seeking faith</li>
+                    <li>Include prayers for vocations to missionary service</li>
+                    <li>End with gratitude for the opportunity to serve through prayer</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Mission Mysteries to Contemplate:</h4>
+                <ul>
+                    <li>The Great Commission - Jesus sending forth the disciples</li>
+                    <li>Pentecost - The gift of tongues for global evangelization</li>
+                    <li>The conversion of St. Paul - From persecutor to missionary</li>
+                    <li>The missionary journeys spreading the Gospel</li>
+                    <li>The harvest is plenty - Praying for more laborers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wristband Page -->
+    <div id="wristband" class="page">
+        <div class="page-header">
+            <h1>🎗️ Mission Wristband</h1>
+            <p>Mission on the Move - Always with you</p>
+        </div>
+        <div class="page-content">
+            <div class="feature-box">
+                <h3>Your Daily Mission Reminder</h3>
+                <p>Wear your mission commitment on your wrist. This inspiring wristband serves as a constant reminder that wherever you go, you carry the mission spirit with you.</p>
+            </div>
+            
+            <div class="feature-list">
+                <h4>What Your Wristband Represents:</h4>
+                <ul>
+                    <li>A commitment to live out the Gospel daily</li>
+                    <li>Unity with missionaries serving around the world</li>
+                    <li>A conversation starter about faith and mission</li>
+                    <li>Strength during challenging moments of witness</li>
+                    <li>Joy in being part of God's global family</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Living Mission on the Move:</h4>
+                <ul>
+                    <li>Share kindness with everyone you meet</li>
+                    <li>Pray for opportunities to witness to your faith</li>
+                    <li>Support mission work through prayer and sacrifice</li>
+                    <li>Learn about different cultures and countries</li>
+                    <li>Practice hospitality and welcome to strangers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prayer Card Page -->
+    <div id="prayer-card" class="page">
+        <div class="page-header">
+            <h1>🙏 Prayer Card & QR Code</h1>
+            <p>Stay connected to global mission updates</p>
+        </div>
+        <div class="page-content">
+            <div class="feature-box">
+                <h3>Mission-Focused Prayer Life</h3>
+                <p>This prayer card contains specially crafted prayers for mission work, along with a QR code that connects you to real-time updates from mission countries around the world.</p>
+            </div>
+            
+            <div class="feature-list">
+                <h4>Daily Mission Prayer (Sample):</h4>
+                <ul>
+                    <li>"Heavenly Father, send forth laborers into your harvest"</li>
+                    <li>"Grant missionaries courage, wisdom, and protection"</li>
+                    <li>"Open hearts to receive the Gospel message"</li>
+                    <li>"Provide for the needs of mission communities"</li>
+                    <li>"May Your Kingdom come to every nation"</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>QR Code Features:</h4>
+                <ul>
+                    <li>Weekly updates from mission countries</li>
+                    <li>Prayer requests from missionaries in the field</li>
+                    <li>Success stories and testimonies of faith</li>
+                    <li>Cultural insights from around the world</li>
+                    <li>Special feast days and celebrations to remember</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Building a Prayer Habit:</h4>
+                <ul>
+                    <li>Pray the mission prayer each morning</li>
+                    <li>Check QR code for weekly updates</li>
+                    <li>Share prayer requests with family and friends</li>
+                    <li>Keep the card visible as a reminder</li>
+                    <li>Join others in coordinated prayer times</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission Map Page -->
+    <div id="map" class="page">
+        <div class="page-header">
+            <h1>🗺️ Mission Country Map</h1>
+            <p>Visual prayer for the world</p>
+        </div>
+        <div class="page-content">
+            <div class="feature-box">
+                <h3>Pray for the World Visually</h3>
+                <p>This beautiful map highlights key mission countries and serves as a powerful visual reminder to pray for specific nations, peoples, and missionary efforts around the globe.</p>
+            </div>
+            
+            <div class="feature-list">
+                <h4>How to Use Your Mission Map:</h4>
+                <ul>
+                    <li>Place the map in a prominent location in your room</li>
+                    <li>Choose a different country to pray for each day</li>
+                    <li>Learn about the culture and challenges of each nation</li>
+                    <li>Mark countries you've prayed for with special stickers</li>
+                    <li>Research missionaries serving in highlighted countries</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Prayer Focus Areas:</h4>
+                <ul>
+                    <li>Countries with limited Gospel access</li>
+                    <li>Nations experiencing persecution of Christians</li>
+                    <li>Areas affected by natural disasters or conflict</li>
+                    <li>Countries with growing young Christian populations</li>
+                    <li>Mission territories needing more workers</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Learning and Growing:</h4>
+                <ul>
+                    <li>Study the geography and culture of mission countries</li>
+                    <li>Read stories of saints and missionaries from each region</li>
+                    <li>Connect with local communities from these countries</li>
+                    <li>Support mission work through fundraising</li>
+                    <li>Consider your own call to missionary service</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Page -->
+    <div id="game" class="page">
+        <div class="page-header">
+            <h1>🌳 Fall & Rise Game</h1>
+            <p>Faith-building tree climbing fun for the whole family</p>
+        </div>
+        <div class="page-content">
+            <div class="feature-box">
+                <h3>Faith-Inspired Tree Climbing Adventure</h3>
+                <p>The Fall & Rise game uses tree climbing metaphors to teach spiritual growth, helping players understand themes of redemption, perseverance, and hope while keeping the mission spirit alive during leisure time.</p>
+            </div>
+            
+            <div class="feature-list">
+                <h4>Game Themes and Lessons:</h4>
+                <ul>
+                    <li>Climbing higher through faith and prayer like growing branches</li>
+                    <li>Learning from falls and growing stronger like a resilient tree</li>
+                    <li>Working together as a community forest of believers</li>
+                    <li>Discovering biblical stories of growth and spiritual fruit</li>
+                    <li>Finding God's grace in new growth and second chances</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Educational Elements:</h4>
+                <ul>
+                    <li>Bible verses about growth and bearing fruit integrated into gameplay</li>
+                    <li>Character development based on Christian virtues like strong roots</li>
+                    <li>Problem-solving scenarios from real mission situations</li>
+                    <li>Cultural awareness through diverse forest settings around the world</li>
+                    <li>Prayer and reflection prompts during climbing breaks</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Family and Community Use:</h4>
+                <ul>
+                    <li>Perfect for youth group gatherings and retreats</li>
+                    <li>Facilitates discussions about faith and mission</li>
+                    <li>Encourages teamwork and Christian fellowship</li>
+                    <li>Suitable for all ages in the family</li>
+                    <li>Creates opportunities for sharing testimonies</li>
+                </ul>
+            </div>
+
+            <div class="feature-list">
+                <h4>Making it Mission-Focused:</h4>
+                <ul>
+                    <li>Dedicate game sessions to praying for specific countries</li>
+                    <li>Use game time to learn about missionary saints</li>
+                    <li>Connect game challenges to real-world mission work</li>
+                    <li>Organize tournaments for mission fundraising</li>
+                    <li>Share game experiences with missionary pen pals</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <button class="back-btn" onclick="showPage('home')" title="Back to Home">🏠</button>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Add smooth scrolling behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects and animations
+            const kitItems = document.querySelectorAll('.kit-item');
+            kitItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.hero');
+                if (parallax) {
+                    const speed = scrolled * 0.5;
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
