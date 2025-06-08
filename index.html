@@ -54,28 +54,24 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: "✝️";
-            font-size: 1.8rem;
-        }
-
         .jy-logo {
             max-height: 40px;
             width: auto;
             margin-right: 0.5rem;
-            display: none; /* Will be shown when src is added */
-        }
+            display: inline-block; /* Changed from none to inline-block */
+            vertical-align: middle;
+            object-fit: contain;
+                }
 
+@media (max-width: 768px) {
+    .jy-logo {
+        max-height: 32px;
+        margin-right: 0.3rem;
+    }
+}
+      
+
+        
         .nav-links {
             display: flex;
             list-style: none;
@@ -446,7 +442,7 @@
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-logo">
-                    <img src="JY Logo.jpg" alt="JY Logo" class="jy-hero-logo" id="heroLogo">
+             <img src="JY logo.jpg" alt="JY Logo" class="jy-logo">
                 </div>
                 <h1>Mission on the Move</h1>
                 <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
