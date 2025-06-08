@@ -216,28 +216,16 @@
             justify-content: center;
         }
 
-.header-logo {
-    height: 1.5em;           /* Scales with text size */
-    width: auto;             /* Maintains aspect ratio */
-    max-width: 60px;         /* Hard limit */
-    margin-right: 0.5rem;    /* Space between logo and text */
-    vertical-align: middle;   /* Aligns with text baseline */
-    object-fit: contain;     /* Keeps proportions */
+.header-logo-large {
+    max-height: 80px;
+    width: auto;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .header-logo {
-        height: 1.2em;       /* Slightly smaller on mobile */
-        max-width: 48px;     /* Smaller max width */
-        margin-right: 0.3rem; /* Less spacing */
-    }
-}
-
-
-
-        
-        .kit-item:hover {
+   .kit-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
             border-color: #4caf50;
@@ -502,13 +490,9 @@
     <!-- Mission Rosary Page -->
     <div id="rosary" class="page">
         <div class="page-header">
-            <h1><img src="Rosary.jpg" alt="Mission Rosary" class="header-logo"> Mission Rosary</h1>
-            
-
-
-           
-            
-            <p>Meditate on Christ's mysteries while praying for global missions</p>
+            <img src="Rosary.jpg" alt="Mission Rosary" class="header-logo-large">
+            <h1>Mission Rosary</h1>
+         <p>Meditate on Christ's mysteries while praying for global missions</p>
         </div>
         <div class="page-content">
             <div class="feature-box">
