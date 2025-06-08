@@ -1,18 +1,5 @@
 <!DOCTYPE html>
-<!--
-    Mission on the Move - JY Initiative Website
-    
-    To add images:
-    1. For JY Logo: Update src attribute in both #navLogo and #heroLogo img tags
-    2. For Kit Icons: Update src attribute in respective image tags:
-       - #rosaryImage for Mission Rosary
-       - #wristbandImage for Mission Wristband  
-       - #prayercardImage for Prayer Card
-       - #mapImage for Mission Country Map
-       - #gameImage for Fall & Rise Game
-    
-    When src is added, images will automatically display and placeholders will be hidden.
--->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -78,7 +65,7 @@
         }
 
         .logo::before {
-            content: "🌍";
+            content: "✝️";
             font-size: 1.8rem;
         }
 
@@ -145,7 +132,7 @@
             padding: 2rem;
         }
 
-        .hero-logo-placeholder {
+        .hero-logo {
             margin-bottom: 2rem;
         }
 
@@ -154,16 +141,6 @@
             width: auto;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
             display: none; /* Will be shown when src is added */
-        }
-
-        .logo-placeholder {
-            background: rgba(255,255,255,0.9);
-            border: 2px dashed #1a237e;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 1rem;
-            color: #1a237e;
-            font-weight: 600;
         }
 
         .hero h1 {
@@ -251,33 +228,6 @@
             display: block;
             line-height: 1;
             position: relative;
-        }
-
-        .kit-item-image {
-            max-width: 80px;
-            max-height: 80px;
-            width: auto;
-            height: auto;
-            margin: 0 auto 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: none; /* Will be shown when src is added */
-        }
-
-        .icon-placeholder {
-            width: 80px;
-            height: 80px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 0.8rem;
-            color: #666;
-            text-align: center;
-            padding: 0.5rem;
-            background: #f8f9fa;
         }
 
         .kit-item h3 {
@@ -463,7 +413,7 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo" onclick="showPage('home')">
-                <img src="JY Logo.jpg" alt="JY Logo" class="jy-logo" id="navLogo">
+                <img src="" alt="JY Logo" class="jy-logo" id="navLogo">
                 Mission on the Move
             </a>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -482,12 +432,8 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-logo-placeholder">
-                    <img src="JY Logo.jpg" alt="JY Logo" class="jy-hero-logo" id="heroLogo">
-                    <div class="logo-placeholder" id="logoPlaceholder">
-                        <p>🏢 JY Logo Placeholder</p>
-                        <small>Update src in code to display logo</small>
-                    </div>
+                <div class="hero-logo">
+                    <img src="" alt="JY Logo" class="jy-hero-logo" id="heroLogo">
                 </div>
                 <h1>Mission on the Move</h1>
                 <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
@@ -497,42 +443,27 @@
 
         <section class="kit-grid">
             <div class="kit-item" onclick="showPage('rosary')">
-                <img src="rosary.jpg" alt="Mission Rosary" class="kit-item-image" id="rosaryImage">
-                <div class="icon-placeholder" id="rosaryPlaceholder">
-                    📿✝️<br><small>Rosary Icon</small>
-                </div>
+                <span class="kit-item-icon">✝️</span>
                 <h3>Mission Rosary</h3>
                 <p>A sacred prayer to meditate on the mysteries of Christ's life while praying for missions worldwide.</p>
             </div>
             <div class="kit-item" onclick="showPage('wristband')">
-                <img src="band.jpg" alt="Mission Wristband" class="kit-item-image" id="wristbandImage">
-                <div class="icon-placeholder" id="wristbandPlaceholder">
-                    🎗️<br><small>Wristband Icon</small>
-                </div>
+                <span class="kit-item-icon">🔗</span>
                 <h3>Mission Wristband</h3>
                 <p>A constant reminder that we are always part of the mission, featuring "Mission on the Move".</p>
             </div>
             <div class="kit-item" onclick="showPage('prayer-card')">
-                <img src="card.jpg" alt="Prayer Card" class="kit-item-image" id="prayercardImage">
-                <div class="icon-placeholder" id="prayercardPlaceholder">
-                    🙏<br><small>Prayer Card Icon</small>
-                </div>
+                <span class="kit-item-icon">🙏</span>
                 <h3>Prayer Card & QR Code</h3>
                 <p>Mission-focused prayers with QR code for updates about mission countries.</p>
             </div>
             <div class="kit-item" onclick="showPage('map')">
-                <img src="map.jpg" alt="Mission Map" class="kit-item-image" id="mapImage">
-                <div class="icon-placeholder" id="mapPlaceholder">
-                    🗺️<br><small>Map Icon</small>
-                </div>
+                <span class="kit-item-icon">🗺️</span>
                 <h3>Mission Country Map</h3>
                 <p>A visual reminder to pray daily for highlighted mission countries around the world.</p>
             </div>
             <div class="kit-item" onclick="showPage('game')">
-                <img src="game.jpg" alt="Fall & Rise Game" class="kit-item-image" id="gameImage">
-                <div class="icon-placeholder" id="gamePlaceholder">
-                    🌳<br><small>Game Icon</small>
-                </div>
+                <span class="kit-item-icon">🌳</span>
                 <h3>Fall & Rise Game</h3>
                 <p>A fun game to play during free time that keeps the mission spirit alive in your heart.</p>
             </div>
@@ -542,7 +473,7 @@
     <!-- Mission Rosary Page -->
     <div id="rosary" class="page">
         <div class="page-header">
-            <h1>📿✝️ Mission Rosary</h1>
+            <h1>✝️ Mission Rosary</h1>
             <p>Meditate on Christ's mysteries while praying for global missions</p>
         </div>
         <div class="page-content">
@@ -593,7 +524,7 @@
     <!-- Wristband Page -->
     <div id="wristband" class="page">
         <div class="page-header">
-            <h1>🎗️ Mission Wristband</h1>
+            <h1>🔗 Mission Wristband</h1>
             <p>Mission on the Move - Always with you</p>
         </div>
         <div class="page-content">
