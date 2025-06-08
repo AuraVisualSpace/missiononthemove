@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<!--
+    Mission on the Move - JY Initiative Website
+    
+    To add images:
+    1. For JY Logo: Update src attribute in both #navLogo and #heroLogo img tags
+    2. For Kit Icons: Update src attribute in respective image tags:
+       - #rosaryImage for Mission Rosary
+       - #wristbandImage for Mission Wristband  
+       - #prayercardImage for Prayer Card
+       - #mapImage for Mission Country Map
+       - #gameImage for Fall & Rise Game
+    
+    When src is added, images will automatically display and placeholders will be hidden.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,6 +86,7 @@
             max-height: 40px;
             width: auto;
             margin-right: 0.5rem;
+            display: none; /* Will be shown when src is added */
         }
 
         .nav-links {
@@ -130,39 +145,25 @@
             padding: 2rem;
         }
 
-        .hero-logo-upload {
+        .hero-logo-placeholder {
             margin-bottom: 2rem;
-        }
-
-        .logo-upload-container {
-            display: inline-block;
-            position: relative;
-            margin-bottom: 1rem;
         }
 
         .jy-hero-logo {
             max-height: 120px;
             width: auto;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            display: none; /* Will be shown when src is added */
         }
 
-        .upload-btn {
+        .logo-placeholder {
             background: rgba(255,255,255,0.9);
             border: 2px dashed #1a237e;
             border-radius: 10px;
             padding: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
             margin-bottom: 1rem;
-        }
-
-        .upload-btn:hover {
-            background: rgba(255,255,255,1);
-            transform: translateY(-2px);
-        }
-
-        .upload-btn input {
-            display: none;
+            color: #1a237e;
+            font-weight: 600;
         }
 
         .hero h1 {
@@ -260,9 +261,10 @@
             margin: 0 auto 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: none; /* Will be shown when src is added */
         }
 
-        .upload-placeholder {
+        .icon-placeholder {
             width: 80px;
             height: 80px;
             border: 2px dashed #ccc;
@@ -271,21 +273,11 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
             font-size: 0.8rem;
             color: #666;
             text-align: center;
             padding: 0.5rem;
-        }
-
-        .upload-placeholder:hover {
-            border-color: #4caf50;
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        .upload-placeholder input {
-            display: none;
+            background: #f8f9fa;
         }
 
         .kit-item h3 {
@@ -471,7 +463,7 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo" onclick="showPage('home')">
-                <img src="" alt="JY Logo" class="jy-logo" id="navLogo" style="display: none;">
+                <img src="JY Logo.jpg" alt="JY Logo" class="jy-logo" id="navLogo">
                 Mission on the Move
             </a>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -490,14 +482,11 @@
     <div id="home" class="page active">
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-logo-upload">
-                    <div class="logo-upload-container">
-                        <img src="" alt="JY Logo" class="jy-hero-logo" id="heroLogo" style="display: none;">
-                        <div class="upload-btn" onclick="document.getElementById('logoUpload').click()">
-                            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">
-                            <p>📁 Upload JY Logo</p>
-                            <small>Click to upload organization logo</small>
-                        </div>
+                <div class="hero-logo-placeholder">
+                    <img src="JY Logo.jpg" alt="JY Logo" class="jy-hero-logo" id="heroLogo">
+                    <div class="logo-placeholder" id="logoPlaceholder">
+                        <p>🏢 JY Logo Placeholder</p>
+                        <small>Update src in code to display logo</small>
                     </div>
                 </div>
                 <h1>Mission on the Move</h1>
@@ -508,46 +497,41 @@
 
         <section class="kit-grid">
             <div class="kit-item" onclick="showPage('rosary')">
-                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('rosaryUpload').click()">
-                    <input type="file" id="rosaryUpload" accept="image/*" onchange="uploadIcon(this, 'rosary')">
-                    <img src="" alt="Mission Rosary" class="kit-item-image" id="rosaryImage" style="display: none;">
-                    <span id="rosaryPlaceholder">📿✝️<br><small>Upload Image</small></span>
+                <img src="rosary.jpg" alt="Mission Rosary" class="kit-item-image" id="rosaryImage">
+                <div class="icon-placeholder" id="rosaryPlaceholder">
+                    📿✝️<br><small>Rosary Icon</small>
                 </div>
                 <h3>Mission Rosary</h3>
                 <p>A sacred prayer to meditate on the mysteries of Christ's life while praying for missions worldwide.</p>
             </div>
             <div class="kit-item" onclick="showPage('wristband')">
-                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('wristbandUpload').click()">
-                    <input type="file" id="wristbandUpload" accept="image/*" onchange="uploadIcon(this, 'wristband')">
-                    <img src="" alt="Mission Wristband" class="kit-item-image" id="wristbandImage" style="display: none;">
-                    <span id="wristbandPlaceholder">🎗️<br><small>Upload Image</small></span>
+                <img src="band.jpg" alt="Mission Wristband" class="kit-item-image" id="wristbandImage">
+                <div class="icon-placeholder" id="wristbandPlaceholder">
+                    🎗️<br><small>Wristband Icon</small>
                 </div>
                 <h3>Mission Wristband</h3>
                 <p>A constant reminder that we are always part of the mission, featuring "Mission on the Move".</p>
             </div>
             <div class="kit-item" onclick="showPage('prayer-card')">
-                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('prayercardUpload').click()">
-                    <input type="file" id="prayercardUpload" accept="image/*" onchange="uploadIcon(this, 'prayercard')">
-                    <img src="" alt="Prayer Card" class="kit-item-image" id="prayercardImage" style="display: none;">
-                    <span id="prayercardPlaceholder">🙏<br><small>Upload Image</small></span>
+                <img src="card.jpg" alt="Prayer Card" class="kit-item-image" id="prayercardImage">
+                <div class="icon-placeholder" id="prayercardPlaceholder">
+                    🙏<br><small>Prayer Card Icon</small>
                 </div>
                 <h3>Prayer Card & QR Code</h3>
                 <p>Mission-focused prayers with QR code for updates about mission countries.</p>
             </div>
             <div class="kit-item" onclick="showPage('map')">
-                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('mapUpload').click()">
-                    <input type="file" id="mapUpload" accept="image/*" onchange="uploadIcon(this, 'map')">
-                    <img src="" alt="Mission Map" class="kit-item-image" id="mapImage" style="display: none;">
-                    <span id="mapPlaceholder">🗺️<br><small>Upload Image</small></span>
+                <img src="map.jpg" alt="Mission Map" class="kit-item-image" id="mapImage">
+                <div class="icon-placeholder" id="mapPlaceholder">
+                    🗺️<br><small>Map Icon</small>
                 </div>
                 <h3>Mission Country Map</h3>
                 <p>A visual reminder to pray daily for highlighted mission countries around the world.</p>
             </div>
             <div class="kit-item" onclick="showPage('game')">
-                <div class="upload-placeholder" onclick="event.stopPropagation(); document.getElementById('gameUpload').click()">
-                    <input type="file" id="gameUpload" accept="image/*" onchange="uploadIcon(this, 'game')">
-                    <img src="" alt="Fall & Rise Game" class="kit-item-image" id="gameImage" style="display: none;">
-                    <span id="gamePlaceholder">🌳<br><small>Upload Image</small></span>
+                <img src="game.jpg" alt="Fall & Rise Game" class="kit-item-image" id="gameImage">
+                <div class="icon-placeholder" id="gamePlaceholder">
+                    🌳<br><small>Game Icon</small>
                 </div>
                 <h3>Fall & Rise Game</h3>
                 <p>A fun game to play during free time that keeps the mission spirit alive in your heart.</p>
@@ -816,41 +800,6 @@
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
-        }
-
-        function uploadLogo(input) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const heroLogo = document.getElementById('heroLogo');
-                    const navLogo = document.getElementById('navLogo');
-                    
-                    heroLogo.src = e.target.result;
-                    navLogo.src = e.target.result;
-                    
-                    heroLogo.style.display = 'block';
-                    navLogo.style.display = 'block';
-                    
-                    // Hide upload button
-                    document.querySelector('.upload-btn').style.display = 'none';
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        function uploadIcon(input, type) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const image = document.getElementById(type + 'Image');
-                    const placeholder = document.getElementById(type + 'Placeholder');
-                    
-                    image.src = e.target.result;
-                    image.style.display = 'block';
-                    placeholder.style.display = 'none';
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
         }
 
         // Add smooth scrolling behavior
