@@ -64,11 +64,17 @@
             gap: 0.5rem;
         }
 
-        .logo::before {
-            content: "✝️";
-            font-size: 1.8rem;
-        }
-
+      .logo::before {
+    content: "";                              /* Empty content required */
+    display: inline-block;                    /* Makes it behave like image */
+    width: 1.8rem;                           /* Set width */
+    height: 1.8rem;                          /* Set height */
+    background-image: url('JYLogo.png');    /* Your logo */
+    background-size: contain;                 /* Fit image properly */
+    background-repeat: no-repeat;            /* Don't repeat */
+    background-position: center;             /* Center the image */
+    vertical-align: middle;                  /* Align with text */
+}
         .jy-logo {
             max-height: 40px;
             width: auto;
