@@ -427,6 +427,37 @@
             margin-bottom: 1rem;
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
+
+
+        .back-button {
+            background: #1a237e;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }    
+
+        .update-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .update-item h3 {
+            color: #1a237e;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -449,7 +480,7 @@
         </div>
     </nav>
 
-    <!-- Home Page -->
+
     <!-- Home Page -->
     <div id="home" class="page active">
         <section class="hero">
@@ -459,8 +490,7 @@
                 </div>
                 <h1>Mission on the Move</h1>
                 <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
-                <a href="#" class="cta-button" onclick="document.querySelector('.kit-grid').scrollIntoView({behavior: 'smooth'})">Explore Mission Kit</a>
-            </div>
+              <a href="#" class="cta-button" onclick="showMissionUpdates()">Show Mission Updates</a>
         </section>
 
 
@@ -685,9 +715,9 @@
             <div class="feature-box">
                 <h3>Faith-Inspired Tree Climbing Adventure</h3>
                 <p>The Fall & Rise game uses tree climbing metaphors to teach spiritual growth, helping players understand themes of redemption, perseverance, and hope while keeping the mission spirit alive during leisure time.</p>
-            </div>
+        </div>
             
-            <div class="feature-list">
+        <div class="feature-list">
                 <h4>Game Themes and Lessons:</h4>
                 <ul>
                     <li>Climbing higher through faith and prayer like growing trees reaching toward heaven</li>
@@ -696,9 +726,9 @@
                     <li>Discovering biblical stories of growth and spiritual fruit</li>
                     <li>Finding God's grace in new growth and second chances</li>
                 </ul>
-            </div>
+        </div>
 
-            <div class="feature-list">
+        <div class="feature-list">
                 <h4>Educational Elements:</h4>
                 <ul>
                     <li>Bible verses about growth and bearing fruit integrated into gameplay</li>
@@ -707,9 +737,9 @@
                     <li>Cultural awareness through diverse forest settings around the world</li>
                     <li>Prayer and reflection prompts during climbing breaks</li>
                 </ul>
-            </div>
+        </div>
 
-            <div class="feature-list">
+        <div class="feature-list">
                 <h4>Family and Community Use:</h4>
                 <ul>
                     <li>Perfect for youth group gatherings and retreats</li>
@@ -731,7 +761,34 @@
                 </ul>
             </div>
         </div>
+
+            <!-- Mission Updates -->
+    <div id="mission-updates" class="page" style="display: none;">
+        <div class="page-header">
+            <button onclick="goHome()" class="back-button">← Back</button>
+            <h1>🌍 Recent Mission Updates</h1>
+            <p>Latest news from the field</p>
+        </div>
+    
+        <div class="update-item">
+            <h3>Water Well Project - Completed</h3>
+            <p class="date">June 8, 2025</p>
+            <p>Successfully completed our 5th water well in rural Kenya. The community now has access to clean drinking water for 200 families.</p>
+        </div>
+    
+        <div class="update-item">
+            <h3>New Church Construction</h3>
+            <p class="date">June 5, 2025</p>
+            <p>Foundation work has begun for our new church in Uganda. Expected completion by September 2025.</p>
+        </div>
+    
+        <div class="update-item">
+            <h3>Medical Mission Outreach</h3>
+            <p class="date">June 1, 2025</p>
+            <p>Our medical team treated over 150 patients this month, providing essential healthcare to remote villages.</p>
+        </div>
     </div>
+ </div>
 
     <!-- Back to Home Button -->
     <button class="back-btn" onclick="showPage('home')" title="Back to Home">🏠</button>
@@ -792,6 +849,19 @@
                 navLinks.classList.remove('active');
             }
         });
+
+        function showMissionUpdates() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('mission-updates').style.display = 'block';
+            window.scrollTo(0, 0);
+            }
+
+        function goHome() {
+            document.getElementById('mission-updates').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        
     </script>
 </body>
 </html>
