@@ -487,10 +487,10 @@
             <div class="hero-content">
                 <div class="hero-logo">
                     <img src="" alt="JY Logo" class="jy-hero-logo" id="heroLogo">
-                </div>
+                 </div>
                 <h1>Mission on the Move</h1>
                 <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
-              <a href="#" class="cta-button" onclick="showMissionUpdates()">Show Mission Updates</a>
+              <a href="#" class="cta-button" onclick="showPage('mission-updates')">Explore Mission Kit</a>
         </section>
 
 
@@ -760,35 +760,34 @@
                     <li>Share game experiences with missionary pen pals</li>
                 </ul>
             </div>
-        </div>
 
-            <!-- Mission Updates -->
-    <div id="mission-updates" class="page" style="display: none;">
-        <div class="page-header">
-            <button onclick="goHome()" class="back-button">← Back</button>
-            <h1>🌍 Recent Mission Updates</h1>
-            <p>Latest news from the field</p>
-        </div>
-    
+
+            <!-- Mission Updates Page -->
+<div id="mission-updates" class="page">
+    <div class="page-header">
+        <h1>🌍 Recent Mission Updates</h1>
+        <p>Latest news from the field</p>
+    </div>
+    <div class="page-content">
         <div class="update-item">
             <h3>Water Well Project - Completed</h3>
             <p class="date">June 8, 2025</p>
             <p>Successfully completed our 5th water well in rural Kenya. The community now has access to clean drinking water for 200 families.</p>
         </div>
-    
+
         <div class="update-item">
             <h3>New Church Construction</h3>
             <p class="date">June 5, 2025</p>
             <p>Foundation work has begun for our new church in Uganda. Expected completion by September 2025.</p>
         </div>
-    
+
         <div class="update-item">
             <h3>Medical Mission Outreach</h3>
             <p class="date">June 1, 2025</p>
             <p>Our medical team treated over 150 patients this month, providing essential healthcare to remote villages.</p>
         </div>
     </div>
- </div>
+</div>
 
     <!-- Back to Home Button -->
     <button class="back-btn" onclick="showPage('home')" title="Back to Home">🏠</button>
@@ -849,19 +848,7 @@
                 navLinks.classList.remove('active');
             }
         });
-
-        function showMissionUpdates() {
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('mission-updates').style.display = 'block';
-            window.scrollTo(0, 0);
-            }
-
-        function goHome() {
-            document.getElementById('mission-updates').style.display = 'none';
-            document.getElementById('home').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-        
+      
     </script>
 </body>
 </html>
