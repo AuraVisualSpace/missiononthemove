@@ -222,6 +222,17 @@
             justify-content: center;
         }
 
+    .kit-item-icon {
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 150px;        /* 3:2 aspect ratio */
+            height: 100px;       /* 3:2 aspect ratio */
+            object-fit: cover;   /* Keeps aspect ratio, crops if needed */
+        }
+
+        
         .header-logo-large {
             max-height: 80px;
             width: auto;
@@ -530,8 +541,7 @@
     <!-- Mission Rosary Page -->
     <div id="rosary" class="page">
         <div class="page-header">
-            <img src="Rosary.jpg" alt="Mission Rosary" class="header-logo-large">
-            <h1>Mission Rosary</h1>
+        <h1>Mission Rosary</h1>
          <p>Meditate on Christ's mysteries while praying for global missions</p>
         </div>
         <div class="page-content">
@@ -541,6 +551,7 @@
                     it's "the epitome of the whole Gospel" that leads us to a deeper understanding of Christ's life, death, and resurrection.</p>
             </div>
 
+                <img src="Rosary.jpg" alt="Mission Rosary" class="kit-item-icon rosary-icon">
             <div class="rosary-colors">
                 <h4>World Mission Rosary - Five Colors for Five Continents</h4>
                 <p>Green for Africa • Red for the Americas • White for Europe • Blue for Oceania • Yellow for Asia</p>
