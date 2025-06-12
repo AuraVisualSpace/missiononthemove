@@ -498,6 +498,46 @@
                 max-width: 512px;
             }
         }
+
+
+
+ /* Mission Updates Image Section */
+        .image1-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-image1 {
+            width: 600px;
+            height: 400px;
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Mobile responsiveness for rosary image */
+        @media (max-width: 768px) {
+            .image-section {
+                margin: 2rem 0;
+                padding: 1rem;
+            }
+            
+            .main-image {
+                width: 100%;
+                height: auto;
+                max-width: 600px;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -530,7 +570,7 @@
                  </div>
                 <h1>Mission on the Move</h1>
                 <p>A JY Initiative to inspire and empower the next generation of missionaries. Join us in spreading hope, faith, and love across the globe.</p>
-              <a href="#" class="cta-button" onclick="showPage('mission-updates')">Explore Mission Kit</a>
+              <a href="#" class="cta-button" onclick="showPage('mission-updates')">Mission Updates</a>
         </section>
 
 
@@ -593,17 +633,6 @@
             </div>
             
             <div class="feature-list">
-                <h4>The Sacred Purpose of the Rosary:</h4>
-                <ul>
-                    <li>Meditate on the twenty mysteries of Christ's life (Joyful, Luminous, Sorrowful, Glorious)</li>
-                    <li>Deepen your understanding of salvation history through Mary's eyes</li>
-                    <li>Unite your prayers with the global Church for mission territories</li>
-                    <li>Practice contemplative prayer that leads to holiness</li>
-                    <li>Ask Mary's intercession for missionaries and those seeking Christ</li>
-                </ul>
-            </div>
-
-            <div class="feature-list">
                 <h4>How to Pray the Mission Rosary:</h4>
                 <ul>
                     <li>Begin with the Sign of the Cross and Apostles' Creed</li>
@@ -633,6 +662,13 @@
             <h1>Mission Wristband</h1>
             <p>Mission on the Move - Always with you</p>
         </div>
+
+        <div class="page-content">
+            <!-- Image Section -->
+            <div class="image-section">
+                <img src="band.jpg" alt="Mission Rosary" class="main-image">
+          </div>
+            
         <div class="page-content">
             <div class="feature-box">
                 <h3>Your Daily Mission Reminder</h3>
@@ -671,6 +707,14 @@
             <h1>Prayer Card</h1>
             <p>Stay connected to global mission updates</p>
         </div>
+
+        
+        <div class="page-content">
+            <!-- Image Section -->
+            <div class="image-section">
+                <img src="card.jpg" alt="Mission Rosary" class="main-image">
+          </div>
+            
         <div class="page-content">
             <div class="feature-box">
                 <h3>Daily Mission Prayer</h3>
@@ -709,6 +753,14 @@
             <h1>Mission Country Map</h1>
             <p>Visual prayer for the world</p>
         </div>
+
+        
+        <div class="page-content">
+            <!-- Image Section -->
+            <div class="image-section">
+                <img src="map.jpg" alt="Mission Rosary" class="main-image">
+          </div>
+            
         <div class="page-content">
             <div class="feature-box">
                 <h3>Pray for the World Visually</h3>
@@ -736,17 +788,6 @@
                     <li>Mission territories needing more workers</li>
                 </ul>
             </div>
-
-            <div class="feature-list">
-                <h4>Learning and Growing:</h4>
-                <ul>
-                    <li>Study the geography and culture of mission countries</li>
-                    <li>Read stories of saints and missionaries from each region</li>
-                    <li>Connect with local communities from these countries</li>
-                    <li>Support mission work through fundraising</li>
-                    <li>Consider your own call to missionary service</li>
-                </ul>
-            </div>
         </div>
     </div>
 
@@ -757,6 +798,14 @@
             <h1>Fall & Rise Game</h1>
             <p>Faith-building tree climbing fun for the whole family</p>
         </div>
+
+        
+        <div class="page-content">
+            <!-- Image Section -->
+            <div class="image-section">
+                <img src="game.jpg" alt="Mission Rosary" class="main-image">
+          </div>
+            
         <div class="page-content">
             <div class="feature-box">
                 <h3>Faith-Inspired Tree Climbing Adventure</h3>
@@ -785,16 +834,6 @@
                 </ul>
         </div>
 
-        <div class="feature-list">
-                <h4>Family and Community Use:</h4>
-                <ul>
-                    <li>Perfect for youth group gatherings and retreats</li>
-                    <li>Facilitates discussions about faith and mission</li>
-                    <li>Encourages teamwork and Christian fellowship</li>
-                    <li>Suitable for all ages in the family</li>
-                    <li>Creates opportunities for sharing testimonies</li>
-                </ul>
-            </div>
 
             <div class="feature-list">
                 <h4>Making it Mission-Focused:</h4>
@@ -819,8 +858,8 @@
         <div class="update-item">
 
                <!-- IMAGE SECTION -->
-    <div class="image-section">
-        <img src="jaison.jpg" alt="Mission Breakthrough" class="main-image">
+    <div class="image-section1">
+        <img src="jaison.jpg" alt="Mission Breakthrough" class="main-image1">
     </div>
             
             <h3>Mission Breakthrough</h3>
@@ -832,8 +871,8 @@ Freetown, SierraLeone.This is a significant mile-stone for the mission, as they 
         <div class="update-item">
             
                <!-- IMAGE SECTION -->
-    <div class="image-section">
-        <img src="coreteam.jpg" alt="Core team" class="main-image">
+    <div class="image1-section">
+        <img src="coreteam.jpg" alt="Core team" class="main-image1">
     </div>
             
             <h3>Fort Portal Diocese & Kasese </h3>
@@ -845,8 +884,8 @@ Freetown, SierraLeone.This is a significant mile-stone for the mission, as they 
 
             
                <!-- IMAGE SECTION -->
-    <div class="image-section">
-        <img src="lira.jpg" alt="Lira Youth Center" class="main-image">
+    <div class="image1-section">
+        <img src="lira.jpg" alt="Lira Youth Center" class="main-image1">
     </div>
             
             <h3>Lira Youth Center</h3>
