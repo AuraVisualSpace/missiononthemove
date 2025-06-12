@@ -520,21 +520,22 @@
             transition: transform 0.3s ease;
         }
 
-        .main-image:hover {
+        .main-image1:hover {
             transform: scale(1.02);
         }
 
-        /* Mobile responsiveness for rosary image */
+        /* Mobile responsiveness for mission update image */
         @media (max-width: 768px) {
-            .image-section {
+            .image1-section {
                 margin: 2rem 0;
                 padding: 1rem;
             }
             
-            .main-image {
-                width: 100%;
-                height: auto;
+            .main-image1 {
+               width: 100%;
+               height: auto !important;  /* Force override */
                 max-width: 600px;
+                object-fit: contain; 
             }
         }
         
@@ -659,7 +660,6 @@
     <!-- Wristband Page -->
     <div id="wristband" class="page">
         <div class="page-header">
-              <img src="band.jpg" alt="Mission Wristband" class="header-logo-large">
             <h1>Mission Wristband</h1>
             <p>Mission on the Move - Always with you</p>
         </div>
@@ -703,7 +703,6 @@
     <!-- Prayer Card Page -->
     <div id="prayer-card" class="page">
         <div class="page-header">
-           <img src="card.jpg" alt="Prayer Card" class="header-logo-large">
             <h1>Prayer Card</h1>
             <p>Stay connected to global mission updates</p>
         </div>
@@ -748,7 +747,6 @@
     <!-- Mission Map Page -->
     <div id="map" class="page">
         <div class="page-header">
-          <img src="map.jpg" alt="Mission Country Map" class="header-logo-large">
             <h1>Mission Country Map</h1>
             <p>Visual prayer for the world</p>
         </div>
@@ -792,8 +790,7 @@
     <!-- Game Page -->
     <div id="game" class="page">
         <div class="page-header">
-          <img src="game.jpg" alt="Fall & Rise Game" class="header-logo-large">
-            <h1>Fall & Rise Game</h1>
+           <h1>Fall & Rise Game</h1>
             <p>Faith-building tree climbing fun for the whole family</p>
         </div>
 
@@ -830,20 +827,8 @@
                     <li>Prayer and reflection prompts during climbing breaks</li>
                 </ul>
         </div>
-
-
-            <div class="feature-list">
-                <h4>Making it Mission-Focused:</h4>
-                <ul>
-                    <li>Dedicate game sessions to praying for specific countries</li>
-                    <li>Use game time to learn about missionary saints</li>
-                    <li>Connect game challenges to real-world mission work</li>
-                    <li>Organize tournaments for mission fundraising</li>
-                    <li>Share game experiences with missionary pen pals</li>
-                </ul>
-                </div>
-        </div>
-    </div>
+     </div>
+ </div>
 
             <!-- Mission Updates Page -->
 <div id="mission-updates" class="page">
